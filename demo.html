@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demos — Websites & AI Chatbots | Bhavish Nobeen</title>
+  <meta name="description" content="Interactive demos: AI Website Optimizer, WhatsApp Lead Bot, Support Knowledge Bot." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#475569; --subtle:#64748b;
+      --primary:#0ea5e9; --primary-600:#0284c7; --ring:#bae6fd;
+      --card:#f8fafc; --border:#e2e8f0; --shadow:0 14px 40px rgba(2,132,199,.12);
+      --radius:18px; --radius-sm:12px; --radius-lg:28px; --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 28px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border);z-index:40}
+    nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 6px var(--ring)}
+    .navlinks{display:flex;gap:10px}
+    .navlinks a{padding:10px 14px;border-radius:12px}
+    .navlinks a:hover{background:var(--card)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;background:var(--primary);color:#fff;font-weight:600;box-shadow:var(--shadow);border:1px solid var(--primary-600)}
+    .btn.secondary{background:#fff;color:var(--text);border:1px solid var(--border);box-shadow:none}
+
+    .hero{padding:96px 0 28px}
+    h1{font-size:40px;letter-spacing:-.02em;margin:.4rem 0}
+    p.lead{color:var(--muted);max-width:70ch}
+
+    section{padding:64px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    @media (max-width:960px){.grid{grid-template-columns:1fr}}
+    .panel{border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff}
+    .panel-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}
+    .panel-body{height:420px;overflow:auto;padding:12px;background:linear-gradient(#fff,#f8fbff)}
+    .snippet{background:#fff;border:1px dashed var(--border);padding:12px;border-radius:12px;color:var(--subtle);font-size:13px}
+
+    .kpis{display:flex;gap:8px;flex-wrap:wrap}
+    .kpi{display:inline-flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:6px 10px;font-size:12px;color:var(--subtle)}
+
+    footer{padding:40px 0;border-top:1px solid var(--border);color:var(--subtle)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="dot"></span><a href="index.html">Bhavish Nobeen</a></div>
+        <div class="navlinks">
+          <a href="index.html#services">Services</a>
+          <a href="demos.html" class="btn secondary">Demos</a>
+          <a href="index.html#projects">Work</a>
+          <a href="index.html#contact" class="btn">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Interactive Demos</h1>
+        <p class="lead">Explore three live snippets I commonly deliver: an AI website optimizer, a WhatsApp lead bot with booking, and a knowledge bot for instant answers. Each demo shows how it works and what the user experiences.</p>
+      </div>
+    </section>
+
+    <!-- Optimizer Demo -->
+    <section id="optimizer">
+      <div class="container grid">
+        <div>
+          <h2>AI Website Optimizer</h2>
+          <p class="lead">An embedded assistant that suggests headline/CTA improvements and tracks A/B tests.</p>
+          <div class="kpis"><span class="kpi">Headline suggestions</span><span class="kpi">CTA variants</span><span class="kpi">Logs changes</span></div>
+          <div class="snippet" style="margin-top:10px">How it works: users test variant A/B → assistant proposes tweaks → logs changes to a sheet → publish best performer.</div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><strong>Optimizer Playground</strong><button class="btn secondary" id="optReset">Reset</button></div>
+          <div class="panel-body" id="optBody"></div>
+          <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
+            <input id="optHeadline" style="flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:10px" placeholder="Type your headline…" />
+            <button class="btn" id="optSuggest">AI Suggest</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp Demo -->
+    <section id="whatsapp">
+      <div class="container grid">
+        <div>
+          <h2>WhatsApp Lead Bot</h2>
+          <p class="lead">Qualifies prospects (need, budget, timing) and hands off to your calendar automatically.</p>
+          <div class="kpis"><span class="kpi">24/7 capture</span><span class="kpi">Auto‑booking</span><span class="kpi">CRM handoff</span></div>
+          <div class="snippet" style="margin-top:10px">Flow: user greets → bot asks 3 questions → proposes slots → books via Calendly/Google Calendar → pushes lead to CRM.</div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><strong>WhatsApp‑style Simulator</strong><button class="btn secondary" id="waReset">Reset</button></div>
+          <div class="panel-body" id="waBody"></div>
+          <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
+            <input id="waText" style="flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:10px" placeholder="Say hi…" />
+            <button class="btn" id="waSend">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Knowledge Bot Demo -->
+    <section id="knowledge">
+      <div class="container grid">
+        <div>
+          <h2>Support Knowledge Bot</h2>
+          <p class="lead">Answers FAQs from a docs/Notion base and escalates to email when needed.</p>
+          <div class="kpis"><span class="kpi">Instant answers</span><span class="kpi">Feedback capture</span><span class="kpi">Escalation</span></div>
+          <div class="snippet" style="margin-top:10px">Flow: user asks → bot matches FAQ → returns answer & doc link → if confidence low, asks to email support and collects details.</div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><strong>Knowledge Bot</strong><button class="btn secondary" id="kbReset">Reset</button></div>
+          <div class="panel-body" id="kbBody"></div>
+          <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
+            <input id="kbText" style="flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:10px" placeholder="Ask a question…" />
+            <button class="btn" id="kbSend">Ask</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <span>© 2025 Bhavish Nobeen</span>
+      <span><a class="btn secondary" href="index.html">← Back to Portfolio</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Helpers
+    const el=(id)=>document.getElementById(id);
+    function addBubble(node, text, ai=true){
+      const b=document.createElement('div');
+      b.className='bubble '+(ai?'ai':'');
+      b.style.cssText='max-width:85%;padding:10px 12px;margin:6px 0;border-radius:14px;border:1px solid var(--border);background:'+ (ai?'#f0f9ff':'#fff')+';';
+      b.textContent=text; node.appendChild(b); node.scrollTop=node.scrollHeight;
+    }
+
+    // Optimizer demo
+    const optBody=el('optBody'), optHeadline=el('optHeadline');
+    function optExplain(){ addBubble(optBody,'Paste your headline and I\'ll propose an A/B variant with rationale.'); }
+    el('optSuggest').onclick=()=>{
+      const h=(optHeadline.value||'Launch your business online today').trim();
+      addBubble(optBody,'H1: '+h,false);
+      setTimeout(()=>{
+        addBubble(optBody,'Variant: "'+h.replace(/\.$/,'')+' — built to convert."');
+        addBubble(optBody,'Rationale: adds benefit + credibility; try a stronger verb and a clear CTA.');
+      },500);
+    };
+    el('optReset').onclick=()=>{ optBody.innerHTML=''; optExplain(); };
+    optExplain();
+
+    // WhatsApp demo
+    const waBody=el('waBody'), waText=el('waText');
+    function waStart(){ addBubble(waBody,'👋 Hi! I\'m your WhatsApp assistant. I can qualify your lead and book a slot.'); }
+    el('waSend').onclick=()=>{
+      const t=waText.value.trim(); if(!t) return; addBubble(waBody,t,false);
+      const low=t.toLowerCase();
+      if(low.includes('hi')||low.includes('hello')) addBubble(waBody,'Great to meet you! What do you need? (website, chatbot, both)');
+      else if(low.includes('website')) addBubble(waBody,'Budget range? (<$2k, $2k–$5k, >$5k)');
+      else if(low.includes('chatbot')) addBubble(waBody,'Do you want lead-gen, support, or both?');
+      else if(low.includes('$')||low.includes('2k')) addBubble(waBody,'Nice. Pick a slot: Tue 10:00, Wed 15:00, Thu 11:30');
+      else if(low.includes('tue')||low.includes('wed')||low.includes('thu')) addBubble(waBody,'Booked! Calendar invite will be sent.');
+      else addBubble(waBody,'I can book calls and push leads to HubSpot/Airtable. Ask me about timelines or pricing.');
+      waText.value='';
+    };
+    el('waReset').onclick=()=>{ waBody.innerHTML=''; waStart(); };
+    waStart();
+
+    // Knowledge bot demo
+    const kbBody=el('kbBody'), kbText=el('kbText');
+    function kbIntro(){ addBubble(kbBody,'Ask about pricing, integrations, or onboarding. I\'ll match an FAQ and escalate to email if needed.'); }
+    el('kbSend').onclick=()=>{
+      const t=kbText.value.trim(); if(!t) return; addBubble(kbBody,t,false);
+      const low=t.toLowerCase();
+      if(low.includes('price')) addBubble(kbBody,'Websites from $1,500; chatbots from $800; bundles from $2,500.');
+      else if(low.includes('integrat')) addBubble(kbBody,'Supported: Webflow, Framer, WordPress, HubSpot, Pipedrive, Airtable, Zapier/Make, GA4.');
+      else if(low.includes('onboard')) addBubble(kbBody,'Onboarding: brief call → content → prototype in 48h → ship in ~1 week.');
+      else addBubble(kbBody,'Not sure. Would you like me to email Bhavish for a detailed answer? (opens mail)');
+    };
+    el('kbReset').onclick=()=>{ kbBody.innerHTML=''; kbIntro(); };
+    kbIntro();
+  </script>
+</body>
+</html>
