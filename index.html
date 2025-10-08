@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhavish Nobeen — Web & Chatbot Developer</title>
+  <meta name="description" content="Bhavish Nobeen — Web & Chatbot Developer & AI Automation Expert. Building digital systems that work 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#475569; --subtle:#64748b;
+      --primary:#0ea5e9; --primary-600:#0284c7; --ring:#bae6fd;
+      --card:#f8fafc; --border:#e2e8f0; --shadow:0 12px 30px rgba(2,132,199,.14);
+      --radius:16px; --radius-sm:12px; --radius-lg:24px; --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 24px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border);z-index:40}
+    nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 6px var(--ring)}
+    .navlinks{display:flex;gap:18px}
+    .navlinks a{padding:8px 12px;border-radius:10px}
+    .navlinks a:hover{background:var(--card)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:var(--primary);color:#fff;font-weight:600;box-shadow:var(--shadow);border:1px solid var(--primary-600)}
+    .btn:hover{transform:translateY(-1px);transition:.2s ease}
+    .btn.secondary{background:#fff;color:var(--text);border:1px solid var(--border);box-shadow:none}
+
+    /* Hero */
+    .hero{padding:92px 0 56px}
+    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:22px}}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--subtle);font-size:12px;font-weight:600}
+    .title{font-size:48px;line-height:1.05;letter-spacing:-.02em;margin:18px 0}
+    @media (max-width:900px){.title{font-size:36px}}
+    .subtitle{font-size:18px;color:var(--muted);max-width:60ch}
+    .cta-row{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+
+    /* Sections */
+    section{padding:70px 0;border-top:1px solid var(--border)}
+    h2{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 24px}
+
+    /* Services */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .service h3{margin:.5rem 0}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.projects{grid-template-columns:1fr}}
+    .project{position:relative;overflow:hidden}
+    .badge{position:absolute;top:12px;left:12px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--subtle)}
+    .project .body{padding:14px}
+    .stat{display:inline-flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:6px 10px;font-size:12px;color:var(--subtle)}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    @media (max-width:900px){.about{grid-template-columns:1fr}}
+
+    /* Testimonials */
+    .quotes{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:900px){.quotes{grid-template-columns:1fr}}
+    blockquote{margin:0;padding:18px;border:1px solid var(--border);border-radius:var(--radius-sm);background:#fff}
+    blockquote footer{margin-top:10px;color:var(--subtle)}
+
+    /* Contact */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form .full{grid-column:1/-1}
+    input, textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--text);font:inherit}
+    textarea{min-height:120px}
+
+    footer{padding:40px 0;color:var(--subtle)}
+
+    /* Floating Chatbot */
+    .chat-launch{position:fixed;right:20px;bottom:20px;background:var(--primary);color:#fff;border:none;border-radius:999px;padding:14px 16px;font-weight:700;box-shadow:var(--shadow);cursor:pointer}
+    .chat-panel{position:fixed;right:20px;bottom:90px;width:360px;max-width:95vw;height:520px;border:1px solid var(--border);border-radius:20px;background:#fff;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+    .chat-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
+    .chat-messages{flex:1;padding:12px;overflow:auto;background:linear-gradient(#fff,#f9fbff)}
+    .bubble{max-width:85%;padding:10px 12px;margin:6px 0;border-radius:14px;border:1px solid var(--border);background:#fff}
+    .bubble.ai{background:#f0f9ff;border-color:#dbeafe}
+    .chat-input{display:flex;gap:8px;padding:10px;border-top:1px solid var(--border)}
+    .chat-input input{flex:1}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="dot"></span>Bhavish Nobeen</div>
+        <div class="navlinks">
+          <a href="#services">Services</a>
+          <a href="#projects">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="btn secondary">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="kicker">Web & Chatbot Developer • AI Automation Expert</span>
+          <h1 class="title">I build websites & AI chatbots that help businesses grow 24/7.</h1>
+          <p class="subtitle">From modern, high-speed websites to intelligent chatbots — I design digital systems that convert, automate, and elevate your business.</p>
+          <div class="cta-row">
+            <a href="#contact" class="btn">Get a Free Demo</a>
+            <a href="#projects" class="btn secondary">See My Work</a>
+          </div>
+          <div class="cta-row">
+            <div class="stat">Avg. 1-week delivery</div>
+            <div class="stat">AI bots for leads & support</div>
+            <div class="stat">Built with best‑in‑class tools</div>
+          </div>
+        </div>
+        <div class="card">
+          <strong>Live Demo Preview</strong>
+          <p class="subtitle">Try the assistant in the corner. It can answer FAQs, collect your details, and book a call. Replace it with your preferred provider in minutes.</p>
+          <ul>
+            <li>Lead capture with email</li>
+            <li>FAQ + service explainer</li>
+            <li>Handoff to contact form / calendar</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <h2>What I Do</h2>
+        <p class="lead">I help entrepreneurs, small businesses, and startups build powerful websites and AI automations that work even when they sleep.</p>
+        <div class="grid">
+          <div class="card service">
+            <h3>Web Design & Development</h3>
+            <p>Beautiful, responsive, and fast websites in Webflow, Framer, or WordPress — designed to attract and convert your ideal customers.</p>
+          </div>
+          <div class="card service">
+            <h3>AI Chatbots & Automation</h3>
+            <p>Custom chatbots powered by GPT-style models to capture leads, answer FAQs, and book appointments instantly on web or WhatsApp.</p>
+          </div>
+          <div class="card service">
+            <h3>Systems & Integrations</h3>
+            <p>Connect your website and chatbot to CRMs, Google Sheets, Notion, or email — so everything works together seamlessly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / CASE STUDIES -->
+    <section id="projects">
+      <div class="container">
+        <h2>Recent Work</h2>
+        <p class="lead">Three professional examples aligned with my focus on websites + AI automation.</p>
+        <div class="projects">
+          <!-- Project 1 -->
+          <article class="card project">
+            <span class="badge">AI Website Optimizer</span>
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop" alt="Website dashboard" />
+            <div class="body">
+              <h3>Conversion‑Focused Landing Page + AI Copy Tuning</h3>
+              <p>Built a lightning‑fast landing page and integrated an AI assistant to A/B test headlines and CTAs. The assistant suggests improvements and logs changes.</p>
+              <p class="subtitle">Stack: Framer • GA4 • Simple AI copy tool</p>
+            </div>
+          </article>
+          <!-- Project 2 -->
+          <article class="card project">
+            <span class="badge">WhatsApp Lead Bot</span>
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Messaging app" />
+            <div class="body">
+              <h3>Lead Qualification & Auto‑Booking</h3>
+              <p>Deployed a chatbot that qualifies prospects (budget, need, timing) and hands off to calendar booking. Captures after‑hours inquiries automatically.</p>
+              <p class="subtitle">Stack: WhatsApp Business • Calendly • Zapier</p>
+            </div>
+          </article>
+          <!-- Project 3 -->
+          <article class="card project">
+            <span class="badge">Support Knowledge Bot</span>
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Docs and AI" />
+            <div class="body">
+              <h3>24/7 FAQ & Docs Assistant</h3>
+              <p>Implemented a website chatbot that answers product FAQs from a knowledge base, escalates to email when needed, and collects feedback on answers.</p>
+              <p class="subtitle">Stack: Chatbase/Flowise • Notion KB • Web embed</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container about">
+        <div>
+          <h2>Who I Am</h2>
+          <p class="lead"><strong>Bhavish Nobeen</strong> — Web & Chatbot Developer, AI Automation Expert. I build digital systems that don’t just look good — they perform.</p>
+          <p>My mission is simple: ship fast, clean websites and intelligent chatbots that convert visitors into customers and save you hours of manual work.</p>
+          <ul>
+            <li>Average 1‑week project turnaround</li>
+            <li>Web + AI combined for measurable results</li>
+            <li>Clear communication and clean hand‑off</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Toolbox</h3>
+          <p>Framer, Webflow, WordPress, Chatbase, Flowise, Botpress, OpenAI, Zapier, Make, Airtable, GA4.</p>
+          <h3>How I work</h3>
+          <p>Audit → Prototype → Build → Integrate → Optimize. You get a weekly update and a dashboard for leads and key metrics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <h2>Client Notes</h2>
+        <div class="quotes">
+          <blockquote>
+            “Bhavish delivered a clean site and chatbot that started capturing leads the same week we launched.”
+            <footer>— Founder, LocalCo</footer>
+          </blockquote>
+          <blockquote>
+            “Great communication and fast delivery. Our support questions dropped thanks to the knowledge bot.”
+            <footer>— Jane D., Product Lead</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2>Let’s Build Something Great</h2>
+        <p class="lead">Book a quick demo or send a message. I’ll reply within 24 hours.</p>
+        <form action="mailto:bhavishnobeen@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <input type="text" name="company" placeholder="Company (optional)" />
+          <textarea class="full" name="message" placeholder="Tell me about your project" required></textarea>
+          <button class="btn full" type="submit">Send Message</button>
+        </form>
+        <p style="margin-top:12px">Prefer email? <a href="mailto:bhavishnobeen@gmail.com" class="btn secondary">bhavishnobeen@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <span>© 2025 Bhavish Nobeen</span>
+      <span>Built with ❤️ — Light mode</span>
+    </div>
+  </footer>
+
+  <!-- Floating Chatbot (replace with your provider iframe if you have one) -->
+  <!-- Example provider embed (uncomment & replace src):
+  <iframe src="YOUR_CHATBOT_IFRAME_URL" style="position:fixed;right:20px;bottom:20px;width:400px;height:600px;border:none;border-radius:16px;box-shadow:0 12px 30px rgba(2,132,199,.14)"></iframe>
+  -->
+
+  <button class="chat-launch" id="chatLaunch">Chat with Bhavish</button>
+  <div class="chat-panel" id="chatPanel" aria-live="polite">
+    <div class="chat-header">
+      <strong>Bhavish’s Assistant</strong>
+      <button id="chatClose" class="btn secondary" style="padding:6px 10px">Close</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input id="chatText" type="text" placeholder="Ask about services, pricing, timelines…" />
+      <button class="btn" id="chatSend" style="padding:10px 14px">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Minimal front-end chatbot: canned AI-like replies + lead capture
+    const el = (id)=>document.getElementById(id);
+    const panel = el('chatPanel');
+    const launch = el('chatLaunch');
+    const closeBtn = el('chatClose');
+    const messages = el('chatMessages');
+    const input = el('chatText');
+    const send = el('chatSend');
+
+    function addBubble(text, ai=true){
+      const b = document.createElement('div');
+      b.className = 'bubble ' + (ai?'ai':'');
+      b.textContent = text;
+      messages.appendChild(b);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function openChat(){ panel.style.display = 'flex'; if(!panel.dataset.init){
+      addBubble('Hi! I\'m Bhavish\'s assistant. Ask me about websites, chatbots, pricing or timelines.');
+      addBubble('Want a free demo? Type "demo" and I\'ll collect your email.');
+      panel.dataset.init = '1'; }
+      input.focus();
+    }
+
+    function closeChat(){ panel.style.display = 'none'; }
+
+    function handleUser(text){
+      const t = text.trim().toLowerCase();
+      if(!t) return;
+      addBubble(text,false);
+      // Simple intent handling
+      if(t.includes('price')||t.includes('cost')){
+        addBubble('Typical projects: 3–5 page websites from $1,500; chatbots from $800; bundles from $2,500. Maintenance/optimization from $300/mo.');
+      } else if(t.includes('time')||t.includes('timeline')||t.includes('how long')){
+        addBubble('Most sites ship in ~1 week. Chatbots can go live in 2–4 days depending on integrations.');
+      } else if(t.includes('demo')){
+        addBubble('Great! Drop your email and a short note — I\'ll send a 30‑sec demo.');
+      } else if(t.includes('@')){
+        addBubble('Thanks! I\'ll reach out shortly.');
+        window.location.href = 'mailto:bhavishnobeen@gmail.com?subject=Demo%20request&body=Hi%20Bhavish%2C%20Here%20are%20my%20details%3A%0A%0AEmail%3A%20'+encodeURIComponent(text)+'%0A%0AWhat%20I%27m%20looking%20for%3A%20';
+      } else if(t.includes('contact')||t.includes('email')){
+        addBubble('You can email me at bhavishnobeen@gmail.com or use the contact form below.');
+      } else {
+        addBubble('Here\'s how I can help: modern websites, AI chatbots, and system integrations. Ask about pricing, timelines, or say "demo" to get started.');
+      }
+    }
+
+    launch.addEventListener('click', openChat);
+    closeBtn.addEventListener('click', closeChat);
+    send.addEventListener('click', ()=>{ handleUser(input.value); input.value=''; });
+    input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ handleUser(input.value); input.value=''; }});
+  </script>
+</body>
+</html>
